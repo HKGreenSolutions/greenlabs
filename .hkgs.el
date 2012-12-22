@@ -2,7 +2,7 @@
 ;; Ver   Date       Author     Changes
 ;; 001   2012-12-17 kphuanghk  Initialize the file
 ;;                             Complete the find-component-view
-;;
+;; 002   2012-12-12 kphuanghk  Add find Rails Model, update key binding
 ;;
 ;;
 ;;
@@ -55,7 +55,7 @@ Mode 2: List controller#view,
 
 
 (defun hkgs-find-view-mode2 ()
-"Find the view of Rails web component. In the future, it will support
+  "Find the view of Rails web component. In the future, it will support
 two modes of finding Rails view:
 Mode 1: Select controller name, then select its views.
   e.g. Step 1: home   Step 2: index create destory edit
@@ -70,6 +70,13 @@ Mode 2: List controller#view,
 	  (completing-read "Find View: " comp-view-options))
     (hkgs-get-view-file comp-view-selected)))
 
+(defun hkgs-find-model ()
+  "Find the Rails model and edit."
+  (interactive)
+  (let (model-selected models)
+    (setq models (directory-files R_MODELS nil "rb$"))
+    (setq model-selected (completing-read "Find Models: " models))
+    (find-file (concat R_MODELS "/" model-selected))))
 
 ;; Pack view here
 (defun pack-view (ctrl view-names)
@@ -114,5 +121,6 @@ Mode 2: List controller#view,
     (find-file view-fullpath)))
 
 ;; Key bindings for HKGS Rails Plugin
-(global-set-key (kbd "C-c C-c") 'hkgs-find-controller)
-(global-set-key (kbd "C-c C-v") 'hkgs-find-view-mode2)
+(global-set-key (kbd "C-c C") 'hkgs-find-controller)
+(global-set-key (kbd "C-c V") 'hkgs-find-view-mode2)
+(global-set-key (kbd "C-c M") 'hkgs-find-model)
