@@ -51,14 +51,14 @@ $ git checkout testing
 Following two are equivalent:
 
 Ver1: 
-$ git checkout -b iss53
+    $ git checkout -b iss53
 
 Ver2:
-$ git branch iss53
-$ git checkout iss53
+    $ git branch iss53
+    $ git checkout iss53
  
 Merge the code together:
-`$ git checkout master`
+`$ git checkout master` --Put the pointer HEAD to master agian.
 `$ git merge hotfix`
 
 
