@@ -58,8 +58,8 @@ $ git branch iss53
 $ git checkout iss53
  
 Merge the code together:
-$ git checkout master
-$ git merge hotfix
+`$ git checkout master`
+`$ git merge hotfix`
 
 
 
