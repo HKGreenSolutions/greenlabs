@@ -1,7 +1,8 @@
+Use ActiveRecord Session
+==========================================
 
-* Use ActiveRecord Session
-$rake db:sessions:create
-$rake db:migrate
+    $rake db:sessions:create
+    $rake db:migrate
 
 Go to <Rapp>/config/initializers/session_store.rb
 
