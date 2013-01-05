@@ -1,4 +1,3 @@
-
 Experience:
 
 05 Jan 2013
@@ -6,7 +5,6 @@ Experience:
 Build up the Quizzes <=> Questions <=> Answer
 
 qtext
-
 
 Quizzes:
 - Name
@@ -23,7 +21,12 @@ Answers:
 - question belongs to: references
 TODO: review a question
 
+
 ```sh
+rake db:drop
+rake db:create
+rake db:migrate
+
 rails g model quiz title:string category:string overview:text author:string
 rails g model question qtext:text type:string
 rails g model answer atext:string correct:boolean question:references
@@ -35,21 +38,17 @@ rails g migration CreateQuizzesQuestions
 
 
 ```ruby
-class CreateQuizzesQuestions < ActiveRecord::Migration
+class CreateQuestionsQuizzes < ActiveRecord::Migration
   def up
-
-    create_table :quizzes_questions, :id=> false do |t|
-      t.integer :quiz_id, :null => false
+    create_table :questions_quizzes, :id=> false do |t|
       t.integer :question_id, :null => false
+      t.integer :quiz_id, :null => false
     end
-
-    add_index :quizzes_questions, [:quiz_id, :question_id], :unique => true
-
+    add_index :questions_quizzes, [:question_id, :quiz_id], :unique => true
   end
-
   def down
-    remove_index :quizzes_questions, :column => [:quiz_id, :question_id]
-    drop_table :quizzes_questions
+    remove_index :questions_quizzes, :column => [:question_id, :quiz_id]
+    drop_table :questions_quizzes
   end
 end
 ```
