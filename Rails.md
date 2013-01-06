@@ -52,3 +52,8 @@ class CreateQuestionsQuizzes < ActiveRecord::Migration
   end
 end
 ```
+
+
+* Reference
+
+http://blogs.sussex.ac.uk/elearningteam/2012/08/29/improving-moodle-import-part-1-the-database-schema/
