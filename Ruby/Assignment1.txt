@@ -1,0 +1,66 @@
+Assignment 1
+
+Purpose of the assignment:
+
+1. Understand the Array and Object Class
+2. Familiar with Array and Object Operations
+3. Training on simple condition checking logics
+4. Simple console interactive actions
+
+Exercise:
+
+1. By mainly using Array Structure, write a program that asks user questions and get user's answers. Finally print the result slip as as the layout provided in the end of this file.
+
+2. Same as question 1. But this time, use Object Class, rather than Array to implement the data structure.
+
+3. You should be familiar with Array and Object Class by Q1 and Q2. Now,  choose your favour data structure approach. Think about three enhancement to the Quiz program.
+
+
+=======================================================================
+1. Where is the capital of China?
+
+A. Beijing
+B. Shanghai
+C. Guangzhou
+D. Hong Kong
+
+Your answer: A
+
+2. Where is the capital of Tokyo?
+
+A. Osaka
+B. Fukuoka
+C. Kagawa
+D. Okayama
+E. Ishikawa
+F. Tokyo
+
+Your answer: A
+
+3. Which of following are functional language?
+
+A. Lisp
+B. Racket
+C. Java
+D. PHP
+E. Scheme
+
+Your answer: CD
+
+Done Exam
+=============================================
+Result Slip
+=============================================
+1. Where is the capital of China?
+Your answer : A
+The correct answer : A
+
+2. Where is the capital of Tokyo?
+Your answer : V
+The correct answer : E
+
+3. Which of following are functional language?
+Your answer : C
+The correct answer : ABE
+
+Your score: 2/3 (66.6%).
