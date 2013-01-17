@@ -54,6 +54,55 @@ end
 ```
 
 
+```ruby
+questions = 
+  Question.create(
+                  [{qtext: 'Where is capital of China', qtype: 'MC'},
+                   {qtext: 'Where is capital of United State', qtype: 'MC'},
+                   {qtext: 'Where is capital of Canada', qtype: 'MC'},
+                   {qtext: 'Where is capital of Japan', qtype: 'MC'}])
+
+q1_ans =
+  Answer.create(
+                [{ atext: 'Beijing', correct: true},
+                 { atext: 'Hong Kong', correct: false},
+                 { atext: 'GuanZhou', correct: false},
+                 { atext: 'Shanghai', correct: false}])
+                 
+q2_ans =
+  Answer.create(
+                [{ atext: 'Washington', correct: true},
+                 { atext: 'New York', correct: false},
+                 { atext: 'New Jersy', correct: false},
+                 { atext: 'Los Angels', correct: false}])
+
+q3_ans =
+  Answer.create(
+                [{ atext: 'Ottawa', correct: true},
+                 { atext: 'Quebec', correct: false},
+                 { atext: 'Waterloo', correct: false},
+                 { atext: 'Vancourer', correct: false}])
+
+q4_ans = 
+  Answer.create(
+                [{ atext: 'Hoikaido', correct: false},
+                 { atext: 'Osaka', correct: false},
+                 { atext: 'Tokyo', correct: true},
+                 { atext: 'Fukuo', correct: false}])
+
+#Due to seed's inability to initialize by massively create reference key on question_id
+                 
+ans = [q1_ans, q2_ans, q3_ans, q4_ans]
+
+ans.each_with_index do |a, i|
+  a.each do |aa|
+    aa.question_id=i
+    aa.save
+  end
+end
+
+```
+
 * Reference
 
 http://blogs.sussex.ac.uk/elearningteam/2012/08/29/improving-moodle-import-part-1-the-database-schema/
