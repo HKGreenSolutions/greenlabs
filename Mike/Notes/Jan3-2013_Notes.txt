@@ -1,0 +1,86 @@
+3 key factors of Rails:
+1. Convention Over Configuration (COC)
+2. DRY (Don't Repeat Yourself)
+3. RESTful (Representation Status) --- SOAP //Web services
+	//RESTful four verbs: GET, PUT, DELETE, POST. http://zh.wikipedia.org/wiki/REST#RESTful_Web_.E6.9C.8D.E5.8A.A1
+----------------------------------------------------------------------------------------------------------------------
+
+Rails is also a MVC model:
+
+M ==> Model		=>	Ruby + ActiveRecord + DB (A row of a table is an Object in ActiveRecord)
+V ==> Viewer		=>	HTML + Ruby
+C ==> Controller	=>	Pure Ruby
+
+For Rails, as Model is a Fatty Model, we can do validations in Model.
+----------------------------------------------------------------------------------------------------------------------
+rails commands:
+
+rails new demo
+//demo is the name of the server
+
+cd demo
+
+rails s
+//rails server
+//to start the server
+
+(in a new cmd: gem isntall thin -V)
+// download thin to replace WeBrick(ruby inplement web server which is slow and low capacity)
+// thin is a new and light weight web server.
+// -V to show details
+
+@Back to cmd that running the server: ctrl+c or ctrl + Pause
+
+@Open demo/Gemfile and add "gem 'thin'" after "gem 'rails', '3.2.1'"
+
+@After thin installed:
+
+thin start
+
+rails g controller home index //run in /demo no need to stop the server
+//g: generate home: controller	index(show, destroy): handler
+//		usually in form of home#index, home#destroy ---> <controller>#<handler>
+
+@Open demo/app/controllers/home_controller.rb
+	// if nothing done, it will creat a .erb file in views/home
+
+rails g model user login:string email:string hash_password:string salt:string
+// it will automatically create a "users" table (with s) in db. Columns: login email hash_password salt later
+// now create a model
+
+rake db:migrate
+//tables will create here
+
+rails destroy <MVC> <name> //eg: rails destroy controller office
+//this line is used when you create something wrong or if you don't want them.
+
+//two tools to control db
+rails dbconsole
+rails console
+
+
+//when you want to add a row in table, you don't need to INSERT it in db, you can use rails console to do that
+//in app/models/user.rb add attr_accessible :XXXX,
+//and to insert a row, in console(not dbconsole)
+
+u = User.new
+u.login="Mike Bi"
+u.email="bibo9061@gmail.com"
+u.save
+
+//create a data.txt in demo/ and add more rows, then load it in rails console
+load "data.txt"
+
+//to get the data from db open demo/app/controllers/home_controller.rb
+//add @Users=User.all in index part
+//and can be added in the page erb.
+//when coding, pay attention to "each"
+
+Summary:
+* 3 dogmas
+* WeBrick and thin
+* generate MVC
+* how to use variables
+* how to use rails console, dbconsole
+* ActiveRecord Ruby Object map to table
+* Rember how to use each, each with index

@@ -1,0 +1,43 @@
+1. Rails libraries -----> Framework: twitter style bootstratp library // Fragments
+2. Model: Seeding -----> Put data into database and to the testing, reload by command
+3. Form Handling -----> Next Time
+
+After today, we can do the quiz development.
+Still need to consider the database structure design.
+
+1.
+
+
+// if you want to start thin in certain port, you can do
+thin start -p XX(80)
+
+// add home index and set as root page. Set as root page command:
+//in /config/routes.rb, add <<root :to=>"home#index">> after <<get "home/index">> and delete /public/index.html and restart server
+
+//get rails layout_footer on: http://ruby.railstutorial.org/chapters/filling-in-the-layout
+//search "Listing 5.1" and copy header to /app/views/layouts/application.html.erb and we can add a header.
+//application.html.erb is a global homepage html file. Change this.
+//as application.html.erb can be very long, we can use fragments to keep it short.
+//in application.html.erb add <%= render 'layouts/*' %> to where you want to make the fragment.
+//in /app/views/layouts/, create "_*.html.erb" and put the html code in. It can do the same as before.
+
+//activate bootstrap and we can make the header more fancy.
+//First add bootstrap under /Gemfile: gem 'bootstrap-sass'
+bundle install
+//If you don't add that in gemfile, bundle install won't activate that.
+
+//in app/assets/stylesheets create a *.css.scss file. In scss file:
+@import 'bootstrap';
+//and restart server, and we can add a new header style.
+//search "#logo" in the websites before, and copy that code to *.css.scss we've created before.
+
+2.
+
+//Goto our github, get Rails.md for instructions.
+//Create 3 db according to Rails.md
+//goto /db and add samples in seed.rb
+rake db:seed // under root folder(lab3)
+//check in dbconsole
+//note to add *.delete_all and make sure it won't duplicate
+//however, the id of the data will keep increasing, so we need to add code(see later)
+//way 2: create like the example
