@@ -106,3 +106,14 @@ end
 * Reference
 
 http://blogs.sussex.ac.uk/elearningteam/2012/08/29/improving-moodle-import-part-1-the-database-schema/
+
+
+The simplest way to implement this is by having a constant in your Person model:
+
+class Person < ActiveRecord:Base
+    PERSON_TYPES = ["Volunteer", "Participant"]
+end
+which you can then access using the select helper:
+
+f.select(:person_type, Person::PERSON_TYPES)
+
